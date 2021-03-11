@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Appointements";
+}
+
+<h2>Your Appointments</h2>
+
+<p>@Html.ActionLink("Upcoming Appointments", "List", new { results = "Upcoming" })</p>
+<p>@Html.ActionLink("Previous Appointments", "List", new { results = "Previous" })</p>
+@Html.Partial("_BookAppointment")
+

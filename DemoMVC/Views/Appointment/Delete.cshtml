@@ -1,0 +1,19 @@
+﻿@model DemoMVC.ViewModels.AppointmentEditorViewModel
+
+@{
+    ViewBag.Title = "Cancel Appointment";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want cancel your appointment for @Model.ProviderName on @Model.AppointmentDate at @Model.AppointmentStart?</h3>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Yes, Cancel Appointment" class="btn btn-default" />
+        </div>
+    }
+    @Html.Partial("_BacktoUpcomingAppointments")
+</div>

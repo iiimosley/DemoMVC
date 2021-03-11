@@ -1,0 +1,53 @@
+﻿@model DemoMVC.ViewModels.ProviderSearchViewModel
+
+@{
+    ViewBag.Title = "Search";
+}
+
+
+<h2 class="seach-title">Search Providers</h2>
+@if(User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Add a Provider", "Create")
+    </p>
+}
+<div>
+    @using (Html.BeginForm("Search", "Provider", FormMethod.Get))
+    {
+        @Html.TextBox("Search", null, new { @class = "search-field", @autocomplete = "off"})
+        <input class="searchBtn" type="submit" value="Search"/>
+    }
+</div>
+
+@if (Model != null)
+{
+    if (Model.TotalPages.Count() > 1)
+    {
+        <div class="page-tab">
+            @foreach (var i in Model.TotalPages)
+            {
+                <span>
+                    @if (i == Model.CurrentPage)
+                    {
+                        @i
+                    }
+                    else
+                    {
+                        @Html.ActionLink(i.ToString(), "Search", "Provider", new { search = Model.SearchQuery, page = i }, null);
+                    }
+                </span>
+            }
+        </div>
+    }
+
+    <div class="provider-container">
+        @foreach (var p in Model.Providers)
+        {
+            @Html.Partial("_ProviderList", p)
+        }
+    </div>
+}
+            
+
+<p class="text-danger no-result">@ViewBag.ErrorMessage</p>

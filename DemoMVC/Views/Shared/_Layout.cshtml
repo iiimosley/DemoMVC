@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPD - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Random Provider Directory", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Provider", "NewSearch", "Provider")</li>
+                    <li>@Html.ActionLink("Appointment", "Index", "Appointment")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Random Provider Directory</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(function () {
+            $(".date-picker").datepicker();
+        });
+
+    </script>
+</body>
+</html>
+
+@*<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <title>RPD - @ViewBag.Title</title>
+            <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+            <meta name="viewport" content="width=device-width" />
+            @Styles.Render("~/Content/css")
+            @Scripts.Render("~/bundles/modernizr")
+        </head>
+        <body>
+            <header>
+                <div class="content-wrapper">
+                    <div class="float-left">
+                        <p class="site-title">@Html.ActionLink("Random Provider Directory", "Index", "Home")</p>
+                    </div>
+                    <div class="float-right">
+                        <section id="login">
+                            @Html.Partial("_LoginPartial")
+                        </section>
+                        <nav>
+                            <ul id="menu">
+                                <li>@Html.ActionLink("Provider", "NewSearch", "Provider")</li>
+                                <li>@Html.ActionLink("Appointment", "Index", "Appointment")</li>
+                                <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <div id="body">
+                @RenderSection("featured", required: false)
+                <section class="content-wrapper main-content clear-fix">
+                    @RenderBody()
+                </section>
+            </div>
+            <footer>
+                <div class="content-wrapper">
+                    <div class="float-left">
+                        <p>&copy; @DateTime.Now.Year - Random Provider Directory</p>
+                    </div>
+                </div>
+            </footer>
+
+            @Scripts.Render("~/bundles/jquery")
+            @RenderSection("scripts", required: false)
+        </body>
+    </html>*@

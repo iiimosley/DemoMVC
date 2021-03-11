@@ -1,0 +1,61 @@
+﻿@model IEnumerable<DemoMVC.ViewModels.AppointmentListViewModel>
+
+@{
+    ViewBag.Title = ViewBag.ResultState + " Appointments";
+}
+
+@if(Model.Count() == 0)
+{
+<p class="no-appt">No @ViewBag.DeterminerState Appointments</p>
+    Html.RenderPartial("_BookAppointment");
+}
+else
+{
+    <h2>Your @ViewBag.DeterminerState Appointments</h2>
+
+    @Html.Partial("_BookAppointment");
+
+    <table class="table">
+        <tr>
+            <th>
+                Provider
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Start
+            </th>
+            <th>
+                End
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProviderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                @if (ViewBag.DeterminerState == "Upcoming")
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentID }) |
+                        @Html.ActionLink("Cancel Appointment", "Delete", new { id = item.AppointmentID })
+                    </td>
+                }
+            </tr>
+        }
+
+    </table>
+}

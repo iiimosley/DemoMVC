@@ -1,0 +1,17 @@
+﻿@model DemoMVC.Models.Provider
+
+@{
+    ViewBag.Title = "Provider Details";
+}
+
+<h2> @Model.Name </h2>
+
+<div>
+    @Html.LabelFor(model => model.Address): @Model.Address
+</div>
+<div>
+    @Html.LabelFor(model => model.City): @Model.City
+</div>
+<div>
+    @Html.LabelFor(model => model.State): @Model.State
+</div>

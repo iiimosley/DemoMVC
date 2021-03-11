@@ -1,0 +1,115 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+select,
+textarea {
+    max-width: 280px;
+}
+
+*:focus {
+    outline: none;
+}
+
+.seach-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-field {
+    display: block;
+    width: 50em;
+    height: 32px;
+    margin: 5px auto;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px dodgerblue solid;
+    box-shadow: 0 0 .2em dodgerblue;
+}
+
+
+.searchBtn {
+    display: block;
+    margin: 5px auto 25px;
+}
+
+
+.page-tab {
+    margin: 10px auto;
+    font-size: 16px;
+    text-align: center;
+}
+
+.page-tab > span {
+    display: inline-block;
+    padding: 4px;
+}
+
+.page-tab a {
+    text-decoration: underline;
+}
+
+.provider-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.provider {
+    margin: 30px 10px;
+    padding: 10px;
+    border: 1px dodgerblue solid;
+    border-radius: 5px;
+    width: 350px;
+    box-shadow: gold 0px 0px 3px 1px;
+}
+
+.provider > h4 {
+    color: dodgerblue;    
+}
+
+.provider a {
+    display: inline-block;
+    padding-right: 30px;
+}
+
+.prvLnk {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px grey solid;
+}
+
+.no-result {
+    font-size: 18px;
+    text-align: center;
+    margin: 20px auto 40px;
+}
+
+.date-picker {
+    width: 100px !important;
+}
+
+.no-appt {
+    font-size: 18px;
+    margin: 18px 0; 
+}
+
+.btn-space {
+    margin: 10px 10px;
+}

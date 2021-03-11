@@ -1,0 +1,14 @@
+﻿@model DemoMVC.Models.Provider
+
+<div class="provider" id="@Model.ID">
+    <h4>@Model.Name</h4>
+    <p>@Model.Address, @Model.City, @Model.State</p>
+    <p class="prvLnk">
+        @if (Request.IsAuthenticated)
+        {
+            @Html.ActionLink("Book Appointment", "Create", "Appointment", 
+             new { prvid = Model.ID, prfid = (int)Membership.GetUser(User.Identity.Name).ProviderUserKey }, null)
+        }
+        @Html.ActionLink("View Details", "Details", new { id = Model.ID })
+    </p>
+</div>
